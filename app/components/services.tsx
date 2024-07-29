@@ -1,14 +1,11 @@
-'use client'
+import React from 'react'
+import { AuroraBackground } from "./ui/aurora-background";
 
-import React from 'react';
-
-const Services = () => {
+export const Services = () => {
   return (
-    <div>
-      <h1>Our Services</h1>
-      <p>Discover our range of services.</p>
-    </div>
-  );
-};
-
-export default Services;
+    <AuroraBackground>
+    <div className='text-black dark:text-white'>
+      My Projects</div>
+      </AuroraBackground>
+  )
+}

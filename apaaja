@@ -1,0 +1,22 @@
+            <p className="mb-3">
+              I'm a fresh graduate from{" "}
+              <span className="text-purple-400">Telkom University</span>, majoring in {" "}
+              <span >Computer Engineering</span> in 2024.{" "}
+              With experience in several programming language  such as{" "}
+              <span className="text-purple-400">HTML, PHP, CSS, and JavaScript </span>
+              as well as experience in PHP Framework using{" "}
+              <span className="text-purple-400">Laravel and CodeIgniter.</span>
+            </p>
+            <p>
+            I enjoy exploring new concepts in {" "}
+            <span >Web Development and Design</span>, and facing
+            complex challenges with a desire to find creative solutions. I believe that
+            the combination of my analytical thinking and artistic skills allows me
+            to create engaging and powerful digital experiences for users.
+            </p>
+
+            <p>
+            Additionally, I also believe in the importance of collaboration and exchanging
+            ideas within teams. I am ready to engage in projects that allow me to learn 
+            from my peers while contributing to the achievement of common goals.
+            </p>

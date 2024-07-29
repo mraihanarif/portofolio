@@ -4,6 +4,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Inter } from 'next/font/google';
 import './globals.css';
+import { ThemeProvider } from './components/theme-provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -11,7 +12,15 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Container>{children}</Container>
+        <Container>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            enableSystem
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider></Container>
       </body>
     </html>
   );
@@ -21,7 +30,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
 const Container = styled.div`
   font-family: Arial, sans-serif;
   height: 100vh;
-  overflow: hidden; /* Hide native scroll bar */
+  overflow: hidden; 
 `;
 
 export default Layout;

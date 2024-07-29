@@ -2,23 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* styles/globals.css */
-/* styles/globals.css */
-/* Pastikan elemen body dan html tidak menghalangi scroll */
+
+/* CSS Global untuk Menghilangkan Scrollbar di Seluruh Halaman */
 html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+  overflow: hidden; /* Menyembunyikan scrollbar di seluruh halaman */
+  height: 100%; /* Memastikan body dan html mengambil seluruh tinggi viewport */
 }
 
-div {
-  box-sizing: border-box;
-}
 
-/* Tambahkan gaya khusus jika diperlukan untuk container dan sections */
-div {
-  font-family: Arial, sans-serif;
-  height: 100vh;
-  overflow: hidden; /* Hide native scroll bar */
-}
+
 

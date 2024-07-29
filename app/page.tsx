@@ -2,21 +2,26 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import Section from './components/section';
-import About from './components/about';
-import Services from './components/services';
-import Contact from './components/contact';
+import Hero from './components/Hero';
+import {About} from './components/About';
+import Projects from './components/Projects';
+import Skills from './components/Skills';
+import Contact from './components/Contact';
+import Navbar from './components/Navbar';
+
+
 
 const HomePage = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [currentSectionIndex, setCurrentSectionIndex] = useState(0);
-  const sectionsRef = useRef<HTMLDivElement[]>([]);
-  const isScrolling = useRef(false); // Menandai apakah sedang scroll
-  const startTouchY = useRef<number | null>(null); // Untuk menyimpan posisi awal sentuhan
+  const sectionsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const isScrolling = useRef(false);
+  const startTouchY = useRef<number | null>(null);
 
   const handleScroll = (event: WheelEvent) => {
-    if (isScrolling.current) return; // Jika sedang scrolling, batalkan event
+    if (isScrolling.current) return;
 
-    isScrolling.current = true; // Tandai sebagai scrolling
+    isScrolling.current = true;
     event.preventDefault();
 
     const delta = event.deltaY;
@@ -34,25 +39,23 @@ const HomePage = () => {
         setCurrentSectionIndex(nextSectionIndex);
         sectionsRef.current[nextSectionIndex]?.scrollIntoView({ behavior: 'smooth' });
 
-        // Debouncing: Reset isScrolling setelah delay
         setTimeout(() => {
           isScrolling.current = false;
-        }, 1000); // Atur waktu delay sesuai kebutuhan
+        }, 1000);
       } else {
-        isScrolling.current = false; // Jika tidak ada perubahan, reset flag
+        isScrolling.current = false;
       }
     });
   };
 
   const handleTouchStart = (event: TouchEvent) => {
-    // Menyimpan posisi awal sentuhan
     startTouchY.current = event.touches[0].clientY;
   };
 
   const handleTouchMove = (event: TouchEvent) => {
-    if (isScrolling.current || startTouchY.current === null) return; // Jika sedang scrolling atau posisi awal tidak ada, batalkan event
+    if (isScrolling.current || startTouchY.current === null) return;
 
-    isScrolling.current = true; // Tandai sebagai scrolling
+    isScrolling.current = true;
     const touchY = event.touches[0].clientY;
     const delta = touchY - (startTouchY.current || 0);
 
@@ -69,12 +72,11 @@ const HomePage = () => {
         setCurrentSectionIndex(nextSectionIndex);
         sectionsRef.current[nextSectionIndex]?.scrollIntoView({ behavior: 'smooth' });
 
-        // Debouncing: Reset isScrolling setelah delay
         setTimeout(() => {
           isScrolling.current = false;
-        }, 1000); // Atur waktu delay sesuai kebutuhan
+        }, 1000);
       } else {
-        isScrolling.current = false; // Jika tidak ada perubahan, reset flag
+        isScrolling.current = false;
       }
     });
   };
@@ -96,26 +98,51 @@ const HomePage = () => {
   }, [currentSectionIndex]);
 
   return (
-    <div ref={containerRef}>
-      <Section ref={(el) => {
-        if (el) {
-          sectionsRef.current[0] = el;
-        }
-      }} style={{ backgroundColor: '#ff6f61' }}>
+    <div ref={containerRef} className="overflow-hidden">
+      <Navbar />
+      <Section
+        sectionType="1"
+         id="hero"
+        ref={(el) => {
+          if (el) sectionsRef.current[0] = el;
+        }}
+      >
+        <Hero />
+      </Section>
+      <Section
+        sectionType="2"
+        id="about"
+        ref={(el) => {
+          if (el) sectionsRef.current[1] = el;
+        }}
+      >
         <About />
       </Section>
-      <Section ref={(el) => {
-        if (el) {
-          sectionsRef.current[1] = el;
-        }
-      }} style={{ backgroundColor: '#ffcc5c' }}>
-        <Services />
+      <Section
+        sectionType="3"
+         id="project"
+        ref={(el) => {
+          if (el) sectionsRef.current[2] = el;
+        }}
+      >
+        <Projects />
       </Section>
-      <Section ref={(el) => {
-        if (el) {
-          sectionsRef.current[2] = el;
-        }
-      }} style={{ backgroundColor: '#88d8b0' }}>
+      <Section
+        sectionType="4"
+         id="skills"
+        ref={(el) => {
+          if (el) sectionsRef.current[3] = el;
+        }}
+      >
+        <Skills />
+      </Section>
+      <Section
+        sectionType="5"
+         id="contact"
+        ref={(el) => {
+          if (el) sectionsRef.current[4] = el;
+        }}
+      >
         <Contact />
       </Section>
     </div>
