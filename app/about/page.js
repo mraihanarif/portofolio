@@ -1,7 +1,9 @@
+'use client';
+
 import React from 'react'
 import Image from "next/image";
 import Test from "../../public/img/2.jpg";
-import Background from '../comp/NoisyBackgroundAbout';
+import Background from '../comp/NoisyBackground';
 
 
 const About = () => {
