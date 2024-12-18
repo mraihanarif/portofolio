@@ -8,7 +8,7 @@ import Background from '../comp/NoisyBackground';
 
 const About = () => {
   return (
-<section className="h-auto w-auto md:w-screen md:h-screen xl:h-[100vh] xl:w-[100vw] text-white flex flex-col xl:flex-row gap-[3rem] xl:gap-[5rem] justify-center items-center relative pt-[9rem] xl:pt-[2rem]">
+<section className="h-screen w-screen md:w-screen md:h-screen xl:h-[100vh] xl:w-[100vw] text-white flex flex-col xl:flex-row gap-[3rem] xl:gap-[5rem] justify-center items-center relative pt-[7rem] xl:pt-[2rem]">
   <Background />
             <div className="w-64 h-64 xl:h-auto xl:w-auto">
                 <Image src={Test} alt="test" width="400" height="500" />

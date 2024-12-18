@@ -72,7 +72,7 @@ const ShaderComponent = () => {
         };
     }, []);
 
-    return <div ref={mountRef} />;
+    return <div ref={mountRef} style={{ position: 'absolute', top: 0, left: 0, zIndex: -1, }} />;
 };
 
 export default ShaderComponent;
