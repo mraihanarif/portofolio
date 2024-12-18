@@ -113,7 +113,7 @@
     inset: 0 0 0 0;
     background: #7f1d1d;
     z-index: -1;
-    transition: transform .3s ease;
+    transition: transform .1s ease;
   }
 
 @media(max-width: 900px) {
