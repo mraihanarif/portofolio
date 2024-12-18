@@ -1,0 +1,159 @@
+
+
+.menu-bar, .menu-overlay-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    padding: 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+.menu-bar a, .menu-open p {
+    color: #fff;
+    cursor: pointer;
+}
+
+.menu-close p {
+    color: #000;
+    cursor: pointer;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    padding: 2em;
+    background: #EAEAEA;
+    z-index: 2;
+    display: flex;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+}
+
+.menu-close-icon {
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    cursor: pointer;
+}
+
+.menu-copy {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 2em;
+}
+
+.menu-preview {
+    flex: 4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.menu-close-icon p {
+    font-size: 100px;
+    line-height: 70%;
+}
+
+.menu-link-item {
+
+    font-weight: 400;
+    font-style: normal;
+    width: max-content;
+    padding-top: 25px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+.menu-link-item-holder {
+    position: relative;
+}
+
+.menu-link-item-holder a{
+    color: #000;
+    font-size: 80px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 85%;
+}
+
+.menu-info {
+    display: flex;
+}
+
+.menu-info-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.menu-link::before {  
+    transform: scaleX(0);
+    transform-origin: bottom right;
+  }
+  
+  .menu-link:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+    transition: .0.2s ;
+  }
+  
+  .menu-link::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    inset: 0 0 0 0;
+    background: #7f1d1d;
+    z-index: -1;
+    transition: transform .3s ease;
+  }
+
+@media(max-width: 900px) {
+    .menu-close-icon {
+        display: none;
+    }
+    .menu-copy {
+        padding-top: 2em;
+    }
+    .menu-link-item-holder a {
+        font-size: 60px;
+    }
+}
+
+.menu-logo {
+    filter: invert(99%) sepia(4%) saturate(1048%) hue-rotate(217deg) brightness(112%) contrast(100%);
+}
+
+.bar1{
+    width: 25px;
+    height: 2px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: 0.4s;
+  }
+.bar2{
+    width: 15px;
+    height: 2px;
+    float: right;
+    background-color: #fff;
+    transition: 0.4s;
+}
+  
+  .change .bar1 {
+    transform: translate(0, 11px) rotate(-45deg);
+  }
+  
+  .change .bar2 {opacity: 0;}
+  
+  .change .bar3 {
+    transform: translate(0, -11px) rotate(45deg);
+  }
+  
