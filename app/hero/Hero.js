@@ -10,7 +10,7 @@ const Hero = () => {
   return (
       <section id="hero" className={`${styles.section} text-white relative`}>
         <Noisy />
-        <div className="relative overflow-hidden h-[100vh] w-[100vw]">
+        <div className="relative overflow-hidden h-screen w-screen xl:h-[100vh] xl:w-[100vw]">
           <div className="absolute bottom-0 ">
             <div
               className={`${styles.wrapper} w-screen lg:flex lg:flex-row lg:gap-[3rem] lg:items-center xl:px-[10rem] md:px-[1rem] md:pb-[10rem] pb-[1rem] lg:px-[4rem]

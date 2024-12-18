@@ -72,7 +72,7 @@ const ShaderComponent = () => {
         };
     }, []);
 
-    return <div ref={mountRef} style={{ position: 'absolute', top: 0, left: 0, zIndex: -1, }} content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />;
+    return <div ref={mountRef} style={{ position: 'absolute', top: 0, left: 0, zIndex: -1, objectFit:'fill' }} className='w-auto h-auto' />;
 };
 
 export default ShaderComponent;
