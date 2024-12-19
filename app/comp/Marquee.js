@@ -39,11 +39,14 @@ const ScrollingTextComponent = () => {
   }, []);
 
   return (
-    <div className="scrolling-text uppercase">
-      <div className="rail">
-        <h4>my works so far </h4>
-        <h4>my works so far </h4>
-        <h4>my works so far </h4>
+    <div className="scrolling-text uppercase bg-transparent z-1">
+      <div className="rail text-[3rem] xl:text-[9rem] bg-transparent">
+        <h4>&nbsp;my works so far</h4>
+        <h4>✦</h4>
+        <h4>my works so far</h4>
+        <h4>✦</h4>
+        <h4>my works so far</h4>
+        <h4>✦</h4>
       </div>
     </div>
   );

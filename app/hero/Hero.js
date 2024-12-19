@@ -47,9 +47,14 @@ const Hero = () => {
           <p>SCROLL</p>
         </div>
       </section>
-      <section className={`${Ogg.className} text-white relative w-[100vw] h-[100vh]`}>
-        <div className="pt-[25vh]">
+      <section className={`${Ogg.className} text-white flex w-[100vw] h-[100vh] bg-transparent`}>
+        <div className="pt-[10vh] xl:pt-[20vh]">
+          <div>
           <ScrollingTextComponent />
+          </div>
+          <div className="">
+            <h1>TEST</h1>
+          </div>
         </div>
       </section>
     </>
