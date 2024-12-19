@@ -1,22 +1,25 @@
-
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
-const ShaderComponent = () => {
+const ShaderComponent = ({ height = '100vh' }) => {
     const mountRef = useRef(null);
 
     useEffect(() => {
+        const mount = mountRef.current;
+
+        // Setup Three.js Scene, Camera, Renderer
         const scene = new THREE.Scene();
         const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 1000);
         const renderer = new THREE.WebGLRenderer({ alpha: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        mountRef.current.appendChild(renderer.domElement);
+        renderer.setSize(mount.clientWidth, mount.clientHeight);
+        mount.appendChild(renderer.domElement);
 
+        // Create Shader Material
         const geometry = new THREE.PlaneGeometry(2, 2);
         const material = new THREE.ShaderMaterial({
             uniforms: {
                 u_time: { value: 0 },
-                u_resolution: { value: new THREE.Vector2(window.innerWidth, window.innerHeight) },
+                u_resolution: { value: new THREE.Vector2(mount.clientWidth, mount.clientHeight) },
             },
             fragmentShader: `
                 #ifdef GL_ES
@@ -32,7 +35,7 @@ const ShaderComponent = () => {
 
                 void mainImage(out vec4 fragColor, in vec2 fragCoord) {
                     vec2 uv = (2.0 * fragCoord - u_resolution.xy) / min(u_resolution.x, u_resolution.y);
-                    
+
                     for(float i = 1.0; i < 10.0; i++) {
                         uv.x += 0.6 / i * cos(i * 2.5 * uv.y + u_time);
                         uv.y += 0.6 / i * cos(i * 1.5 * uv.x + u_time);
@@ -55,24 +58,48 @@ const ShaderComponent = () => {
         scene.add(mesh);
         camera.position.z = 1;
 
+        // Animation Loop
         const animate = () => {
-            material.uniforms.u_time.value += 0.01; // Slow down the time increment
+            material.uniforms.u_time.value += 0.01;
             renderer.render(scene, camera);
             requestAnimationFrame(animate);
         };
 
         animate();
 
-        // Cleanup on component unmount
+        // Handle Resize to Fit Container
+        const handleResize = () => {
+            const width = mount.clientWidth;
+            const height = mount.clientHeight;
+
+            renderer.setSize(width, height);
+            material.uniforms.u_resolution.value.set(width, height);
+        };
+
+        // Observe Resizing on Window or Container
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup on Component Unmount
         return () => {
-            if (mountRef.current) {
-                mountRef.current.removeChild(renderer.domElement);
-            }
+            mount.removeChild(renderer.domElement);
             renderer.dispose();
+            window.removeEventListener('resize', handleResize);
         };
     }, []);
 
-    return <div ref={mountRef} style={{ position: 'absolute', top: 0, left: 0, zIndex: -1, objectFit:'fill' }} className='w-auto h-auto' />;
+    return (
+        <div
+            ref={mountRef}
+            style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: height, // Set height dynamically
+                zIndex: -1,
+            }}
+        />
+    );
 };
 
 export default ShaderComponent;
