@@ -22,35 +22,37 @@ const ShaderComponent = ({ height = '100vh' }) => {
                 u_resolution: { value: new THREE.Vector2(mount.clientWidth, mount.clientHeight) },
             },
             fragmentShader: `
-                #ifdef GL_ES
-                precision mediump float;
-                #endif
+            #ifdef GL_ES
+precision mediump float;
+#endif
 
-                uniform float u_time;
-                uniform vec2 u_resolution;
+uniform float u_time;
+uniform vec2 u_resolution;
 
-                float noise(vec2 uv) {
-                    return fract(sin(dot(uv.xy, vec2(12.9898, 78.233))) * 43758.5453);
-                }
+float noise(vec2 uv) {
+    return fract(sin(dot(uv.xy, vec2(12.9898, 78.233))) * 43758.5453);
+}
 
-                void mainImage(out vec4 fragColor, in vec2 fragCoord) {
-                    vec2 uv = (2.0 * fragCoord - u_resolution.xy) / min(u_resolution.x, u_resolution.y);
+void mainImage(out vec4 fragColor, in vec2 fragCoord) {
+    vec2 uv = (2.0 * fragCoord - u_resolution.xy) / min(u_resolution.x, u_resolution.y);
 
-                    for(float i = 1.0; i < 10.0; i++) {
-                        uv.x += 0.6 / i * cos(i * 2.5 * uv.y + u_time);
-                        uv.y += 0.6 / i * cos(i * 1.5 * uv.x + u_time);
-                    }
+    for(float i = 1.0; i < 10.0; i++) {
+        uv.x += 0.6 / i * cos(i * 2.5 * uv.y + u_time);
+        uv.y += 0.6 / i * cos(i * 1.5 * uv.x + u_time);
+    }
 
-                    float n = noise(uv * 10.0 + u_time * 0.5);
-                    float redValue = 0.1 / abs(sin(u_time - uv.y - uv.x)) + n * 0.9;
-                    redValue *= 0.3;
+    float n = noise(uv * 10.0 + u_time * 0.5);
+    float blueValue = 0.1 / abs(sin(u_time - uv.y - uv.x)) + n * 0.9;
+    blueValue *= 0.3;
 
-                    fragColor = vec4(redValue, 0.0, 0.0, 1.0);
-                }
+    // Ganti warna merah menjadi biru
+    fragColor = vec4(0.0, 0.0, blueValue, 1.0);
+}
 
-                void main() {
-                    mainImage(gl_FragColor, gl_FragCoord.xy);
-                }
+void main() {
+    mainImage(gl_FragColor, gl_FragCoord.xy);
+}
+
             `,
         });
 

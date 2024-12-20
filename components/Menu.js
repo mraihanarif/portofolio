@@ -9,6 +9,7 @@ import Logo from "../public/img/RA.png";
 import Image from "next/image";
 import { Questrial } from "next/font/google";
 import { Tinos } from "next/font/google";
+import Clock from "./Clock";
 
 const questrial = Questrial({
   subsets: ["latin"],
@@ -97,12 +98,11 @@ const Menu = () => {
             <Image src={Logo} alt="Logo" width="40" height="40" />
           </Link>
         </div>
-        <div className="text-white/50 absolute right-[5rem]">
+        <div className="text-white/50 items-center">
           <p>[ open to work ]</p>
         </div>
-        <div className="menu-open cursor-pointer " onClick={toggleMenu}>
-          <div className="bar1"></div>
-          <div className="bar2"></div>
+        <div>
+          <Clock />
         </div>
       </div>
 
