@@ -1,21 +1,11 @@
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Menu from "@/components/Menu";
-
-
-import { Questrial } from 'next/font/google';
-import { Tinos } from 'next/font/google';
 import Lenis from "./comp/Lenis";
+import localFont from "next/font/local";
 
-const questrial = Questrial({
-  subsets: ['latin'],
-  weight: "400",
-  variable: "--font-questrial"
-});
 
-const tinos = Tinos({
-  subsets: ['latin'],
-  weight: "400",
+const Ogg = localFont({
+  src: '../public/fonts/Ogg-Regular.ttf',
 });
 
 export const metadata = {
@@ -26,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
 <html lang="en">
-      <body className={`${questrial.className}`}>
+      <body className={`${Ogg.className}`}>
         <Menu />
         <Lenis >
           {children}
