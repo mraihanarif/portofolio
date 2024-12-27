@@ -35,6 +35,19 @@ const Hero = () => {
       }
     });
 
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: containerRef.current,
+        start: "49% 50%",
+        scrub: true,
+        markers: true,
+      }
+    });
+
+    timeline.to(containerRef.current, {
+      y: 300,
+    })
+
     // Preloader animations
     tl
     .to(loadingTextRef.current,{text:"UR PAGE BEING LOADED", duration:3})
@@ -43,9 +56,7 @@ const Hero = () => {
       transformOrigin: "left",
       duration: 3, // Adjust duration for bar animation
       ease: "power1.inOut",
-      onComplete: () => {
-        gsap.set(progressBarRef.current, { opacity: 0,duration: 1, ease: "power1.inOut" });
-      }
+
     })
       .to(loadingTextRef.current, {
         opacity: 0,
@@ -74,7 +85,7 @@ const Hero = () => {
         >
           <p
             ref={loadingTextRef}
-            className="text-white text-2xl"
+            className="text-white text-2xl font-semibold"
           >
             
           </p>
