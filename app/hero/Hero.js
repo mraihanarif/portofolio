@@ -40,7 +40,6 @@ const Hero = () => {
         trigger: containerRef.current,
         start: "49% 50%",
         scrub: true,
-        markers: true,
       }
     });
 
