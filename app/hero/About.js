@@ -4,7 +4,7 @@ import React from 'react'
 
 const About = () => {
   return (
-        <section className="text-white w-[100vw] h-[100vh] bg-black overflow-hidden relative z-50">
+        <section className="text-white w-[100vw] h-[100vh] bg-black overflow-hidden relative z-10">
                 <div>
                 <div className="text__about font-semibold max-w-none p-2 text-[3.6vh] md:max-w-[45rem] 2xl:max-w-[70rem] md:p-4 2xl:text-[5.1vh] tracking-loose">
                     <p>Passionate about Web Development and Design, and tackling complex challenges with desire to find creative solutions.</p>

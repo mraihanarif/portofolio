@@ -6,11 +6,12 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none;
 }
 
-html,body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -28,9 +29,7 @@ html,body {
   white-space: nowrap;
   font-weight: 700;
   letter-spacing: ls(120);
-  line-height: 1em;
   margin: 0 2rem 0 0;
-  color: white;
 }
 
 .preloader .loader {
@@ -49,7 +48,7 @@ html,body {
 
 body.no-scroll {
   overflow: hidden; /* Menonaktifkan scroll */
-  height: 100vh;    /* Pastikan tidak ada konten yang terlihat di bawah */
+  height: 100vh; /* Pastikan tidak ada konten yang terlihat di bawah */
 }
 
 .preloader {
@@ -64,7 +63,6 @@ body.no-scroll {
   overflow: hidden; /* Ensure content doesn't overflow during the animation */
 }
 
-
 .counting-number {
   font-family: "Dela Gothic One", sans-serif;
   font-size: 4rem;
@@ -78,4 +76,15 @@ body.no-scroll {
   font-size: 1.5rem;
   color: #333;
   margin-top: 10px;
+}
+
+.backgrounddd {
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  transform: scale(1.05);
+  border-style: solid;
+}
+
+.gambar {
+  image-rendering: pixelated;
 }

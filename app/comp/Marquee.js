@@ -3,6 +3,12 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { Kumar_One_Outline } from "next/font/google";
+
+const bungee = Kumar_One_Outline({
+  subsets: ["latin"],
+  weight: "400",
+});
 
 // Daftarkan plugin ScrollTrigger ke GSAP
 gsap.registerPlugin(ScrollTrigger);
@@ -36,15 +42,15 @@ const ScrollingTextComponent = () => {
           },
         });
       }
-    }
+    } 
   }, []);
 
   return (
-    <div suppressHydrationWarning className="scrolling-text uppercase bg-transparent z-1">
-      <div className="rail text-[3rem] xl:text-[9rem] bg-transparent">
-        <h4>&nbsp;&nbsp;&nbsp;my works so far &#8600;</h4>
-        <h4>my works so far &#8600;</h4>
-        <h4>my works so far &#8600;</h4>
+    <div suppressHydrationWarning className="scrolling-text uppercase bg-transparent z-1 text-border">
+      <div className={`${bungee.className} rail text-[3rem] xl:text-[9rem] bg-transparent `}>
+        <h4>&nbsp;my works so far</h4>
+        <h4>my works so far</h4>
+        <h4>my works so far</h4>
       </div>
     </div>
   );

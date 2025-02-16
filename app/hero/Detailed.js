@@ -33,7 +33,7 @@ const Detailed = () => {
                     <p>Indonesia</p>
                     <br />
                     <p>mraihanarif666@gmail.com</p>
-                    <p>+62 82383978374</p>
+                    <p>+62 823 8397 8374</p>
                   </div>
                   <div className="bg-white w-[50vw] h-[50vh] xl:h-[70vh] rounded-lg mx-auto hidden xl:block relative">
                       <Image

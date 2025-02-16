@@ -9,7 +9,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 1;
+    z-index: 100;
 }
 
 .menu-bar a, .menu-open p {
@@ -30,7 +30,7 @@
     height: 100vh;
     padding: 2em;
     background: #EAEAEA;
-    z-index: 2;
+    z-index: ;
     display: flex;
     clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
 }
